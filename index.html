@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./Style/index.css">
+
 </head>
 
 <body>
     <div class="navbarFixed">
-        <h1>Digital <br> resturent</h1>
-        <div id="divider"></div>
         <i class="fa-brands fa-gripfire"></i>
         <i class="fa-solid fa-shield-halved"></i>
     </div>
@@ -44,17 +44,20 @@
 
         </div>
     </div>
-
-    <div class="container">
-        <nav>
+    <nav>
+        <div class="navInput">
+            <h1>Digital <br> Resturent</h1>
             <div class="input">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" placeholder="Search...">
             </div>
-            <div class="right">
-                <i class="fa-solid fa-cart-plus" id="cartToggle"></i>
-            </div>
-        </nav>
+        </div>
+        <div class="right">
+            <i class="fa-solid fa-cart-plus" id="cartToggle"></i>
+        </div>
+    </nav>
+
+    <div class="container ">
 
         <div class="banner">
             <img src="./Assets/Index/Banner image.png" alt="">
@@ -93,7 +96,7 @@
             </div>
 
             <div class="cardSection" id="cardSection">
-                <div class="card">
+                <!-- <div class="card">
                     <div>
                         <img src="./Assets/Index/Sweets.png" alt="">
                     </div>
@@ -109,41 +112,7 @@
                         <p>$7.29</p>
                         <i class="fa-solid fa-plus"></i>
                     </div>
-                </div>
-                <div class="card">
-                    <div>
-                        <img src="./Assets/Index/Vegetable Pizza.png" alt="">
-                    </div>
-                    <p>Vegetable Pizza</p>
-                    <div class="star">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                    </div>
-                    <div class="price">
-                        <p>$7.29</p>
-                        <i class="fa-solid fa-plus"></i>
-                    </div>
-                </div>
-                <div class="card">
-                    <div>
-                        <img src="./Assets/Index/Mushroom Pizza.png" alt="">
-                    </div>
-                    <p>Mushroom Pizza</p>
-                    <div class="star">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                    </div>
-                    <div class="price">
-                        <p>$7.29</p>
-                        <i class="fa-solid fa-plus"></i>
-                    </div>
-                </div>
+                </div> -->
             </div>
 
         </div>
