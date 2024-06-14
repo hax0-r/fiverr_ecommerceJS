@@ -40,9 +40,12 @@
     h1 {
         background-color: #f8cfb3;
         padding: .1rem 1rem;
+        font-size: 1rem;
+        margin-left: 4rem;
         color: var(--black-color);
         border-radius: 25rem;
         margin-top: 1rem;
+        font-weight: 500;
     }
 
     i {
@@ -55,6 +58,110 @@
         justify-content: center;
         align-items: center;
         margin-bottom: .5rem;
+    }
+}
+
+.cartFixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0;
+    z-index: 999;
+    height: 100vh;
+    transition: 200ms all;
+    background-color: var(--white-color);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    .head {
+        display: flex;
+        padding: 2rem 2rem 0rem 1rem;
+        justify-content: space-between;
+        align-items: center;
+
+        h1 {
+            font-size: 1.5rem;
+            color: var(--black-color);
+        }
+
+        i {
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: 200ms all;
+
+            &:hover {
+                transform: rotate(45deg);
+            }
+        }
+
+    }
+
+    #divider {
+        background-color: #e9ecef;
+        height: 1px;
+        width: 100%;
+        margin-top: 0;
+        margin: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .cart {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 23rem;
+        margin: auto;
+        background-color: #fff5ee;
+        padding: 1rem;
+        border-radius: 10px;
+        border: none;
+        gap: 1rem;
+        margin-bottom: .7rem;
+
+        img {
+            height: 6rem;
+        }
+
+        .counter {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+
+            span {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                align-items: center;
+
+                i {
+                    background-color: var(--orange-color);
+                    color: var(--white-color);
+                    padding: .3rem .5rem;
+                    cursor: pointer;
+                    border-radius: .3rem;
+                    border: none;
+
+                }
+            }
+        }
+
+        .delete {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            cursor: pointer;
+
+            i {
+                color: #E60A0A;
+                font-size: 1.1rem;
+            }
+
+            p {
+                color: var(--black-color);
+            }
+        }
+
     }
 }
 
@@ -71,7 +178,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     height: 5rem;
-    padding: 0 2rem;
+    padding: 0 2rem 0 4rem;
 
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
@@ -106,29 +213,30 @@ nav {
 
         i {
             color: var(--orange-color);
-            font-size: 1.3rem;
+            font-size: 1.5rem;
+            padding-right: 2rem;
             cursor: pointer;
-        }
-
-        .person {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            padding-left: 1rem;
-
-            i {
-                color: var(--white-color);
-                background-color: var(--orange-color);
-                padding: .8rem;
-                font-size: 1rem;
-                border-radius: 50%;
+            transition: 200ms all;
+            position: relative;
+            &:hover{
+                transform: scale(1.1);
             }
-
-            span {
-                p {
-                    font-size: .9rem;
-                }
+            &::after{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                content: "0";
+                position: absolute;
+                top: -.9rem;
+                right: .7rem;
+                font-size: .8rem;
+                background-color: #ef9456;
+                color: #fff;
+                padding: .1rem;
+                border-radius: 50%;
+                border: none;
+                width: 1rem;
+                height: 1rem;
             }
         }
     }
