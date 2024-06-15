@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./Style/ActiveOrder.css">
+
+</head>
+
+<body>
+    <div class="navbarFixed">
+        <a href="./index.html">
+            <i class="fa-brands fa-gripfire"></i>
+        </a>
+        <a href="./ActiveOrder.html">
+            <i class="fa-solid fa-shield-halved"></i>
+        </a>
+    </div>
+    <div class="cartFixed" id="cartFixed">
+        <div class="head">
+            <h1>My Cart</h1>
+            <i class="fa-solid fa-xmark" id="cartToggleClose"></i>
+        </div>
+        <div id="divider"></div>
+        <div class="cartSection" id="cartSection">
+        </div> 
+
+    </div>
+    </div>
+    <nav>
+        <div class="navInput">
+            <h1>Digital <br> Resturent</h1>
+            <div class="input">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search...">
+            </div>
+        </div>
+        <div class="right">
+            <i class="fa-solid fa-cart-plus" id="cartToggle"></i>
+        </div>
+    </nav>
+
+    <div class="mainContainer">
+        <div class="container">
+            <div class="menu">
+                <div class="head">
+                    <h1>Active Orders</h1>
+                    <div class="categoryButtons">
+                        <button id="allCategoryButton" class="category-button">All</button>
+                        <button id="pizzaCategoryButton" class="category-button">Pizza</button>
+                        <button id="burgerCategoryButton" class="category-button">Burger</button>
+                    </div>
+                </div>
+                <div class="cardSection" id="activeOrderSection">
+                    <!-- cart -->
+                </div>
+                <div> <span style="opacity: 70%;">Total: &nbsp;</span> <b style="font-size: 1.4rem; font-weight: 500;" id="totalPrice">$0.00</b></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="./Script/ActiveOrder.js"></script>
+
+</html>

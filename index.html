@@ -15,8 +15,12 @@
 
 <body>
     <div class="navbarFixed">
-        <i class="fa-brands fa-gripfire"></i>
-        <i class="fa-solid fa-shield-halved"></i>
+        <a href="./index.html">
+            <i class="fa-brands fa-gripfire"></i>
+        </a>
+        <a href="./ActiveOrder.html">
+            <i class="fa-solid fa-shield-halved"></i>
+        </a>
     </div>
 
     <div class="cartFixed" id="cartFixed">
@@ -57,64 +61,49 @@
         </div>
     </nav>
 
-    <div class="container ">
-
-        <div class="banner">
-            <img src="./Assets/Index/Banner image.png" alt="">
-            <div class="content">
-
-                <h4>Deal of the weekend</h4>
-                <h1>Hello, From Pakistan</h1>
-                <p>Get <span>free delivery </span> on every weekend</p>
-                <div>
-                    <button>Check Menu</button>
+    <div class="mainContainer">
+        <div class="container ">
+    
+            <div class="banner">
+                <img src="./Assets/Index/Banner image.png" alt="">
+                <div class="content">
+    
+                    <h4>Deal of the weekend</h4>
+                    <h1>Hello, From Pakistan</h1>
+                    <p>Get <span>free delivery </span> on every weekend</p>
+                    <a href="#">
+                        <button>Check Menu</button>
+                    </a>
                 </div>
             </div>
-        </div>
-
-        <div class="menu">
-            <div class="head">
-                <h1>Menu Category</h1>
-                <span>
-                    <p>View All</p>
-                    <i class="fa-solid fa-angle-right"></i>
-                </span>
-            </div>
-            <div class="category">
-                <div class="items">
-                    <img src="./Assets/Index/Pizza icon.png" alt="">
-                    <p>Pizza</p>
-                    <div id="divider"></div>
-                    <i class="fa-solid fa-angle-right"></i>
+    
+            <div class="menu">
+                <div class="head">
+                    <h1>Menu Category</h1>
+                    <a href="./ActiveOrder.html">
+                        <p>View All</p>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
                 </div>
-                <div class="items">
-                    <img src="./Assets/Index/Burger icon.png" alt="">
-                    <p>Burgar</p>
-                    <div id="divider"></div>
-                    <i class="fa-solid fa-angle-right"></i>
+                <div class="category">
+                    <div class="items" id="pizzaCategory">
+                        <img src="./Assets/Index/Pizza icon.png" alt="">
+                        <p>Pizza</p>
+                        <div id="divider"></div>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                    <div class="items" id="burgerCategory">
+                        <img src="./Assets/Index/Burger icon.png" alt="">
+                        <p>Burger</p>
+                        <div id="divider"></div>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
                 </div>
+    
+                <div class="cardSection" id="cardSection">
+                </div>
+    
             </div>
-
-            <div class="cardSection" id="cardSection">
-                <!-- <div class="card">
-                    <div>
-                        <img src="./Assets/Index/Sweets.png" alt="">
-                    </div>
-                    <p>Sweets</p>
-                    <div class="star">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                    </div>
-                    <div class="price">
-                        <p>$7.29</p>
-                        <i class="fa-solid fa-plus"></i>
-                    </div>
-                </div> -->
-            </div>
-
         </div>
     </div>
 </body>

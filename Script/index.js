@@ -10,51 +10,58 @@ cartToggleClose.addEventListener('click', () => {
     cartFixed.style.width = '0px';
 });
 
-// ===========dynamic Cards=================
 
 const cardsData = [
     {
         imgSrc: "./Assets/Index/Spaghetti.png",
         title: "Spaghetti",
         rating: 3,
-        price: "$7.29"
+        price: "$7.29",
+        category: "pizza"
     },
     {
         imgSrc: "./Assets/Index/Sweets.png",
         title: "Sweets",
         rating: 3,
-        price: "$7.29"
+        price: "$7.29",
+        category: "pizza"
     },
     {
         imgSrc: "./Assets/Index/Vegetable Pizza.png",
         title: "Vegetable Pizza",
         rating: 3,
-        price: "$7.29"
+        price: "$7.29",
+        category: "pizza"
     },
     {
         imgSrc: "./Assets/Index/Vegetable Pizza.png",
         title: "Vegetable Pizza",
         rating: 3,
-        price: "$7.29"
+        price: "$7.29",
+        category: "pizza"
     },
     {
         imgSrc: "./Assets/Index/Vegetable Pizza.png",
         title: "Vegetable Pizza",
         rating: 3,
-        price: "$7.29"
+        price: "$3.29",
+        category: "burger"
     },
     {
         imgSrc: "./Assets/Index/Mushroom Pizza.png",
         title: "Mushroom Pizza",
         rating: 3,
-        price: "$7.29"
+        price: "$3.29",
+        category: "burger"
     }
 ];
 
 const cards = document.getElementById("cardSection");
 
-const cardMethod = () => {
-    cardsData.map((data) => {
+const cardMethod = (category) => {
+    cards.innerHTML = "";
+    const filteredData = category ? cardsData.filter(data => data.category === category) : cardsData;
+    filteredData.map((data) => {
         let cardElement = document.createElement('div');
         cardElement.className = "card";
         cardElement.innerHTML = `
@@ -82,6 +89,9 @@ const cardMethod = () => {
     });
 }
 
+document.getElementById('pizzaCategory').addEventListener('click', () => cardMethod('pizza'));
+document.getElementById('burgerCategory').addEventListener('click', () => cardMethod('burger'));
+
 cardMethod();
 
 const carts = document.getElementById("cartSection");
@@ -105,6 +115,29 @@ const addToCart = (item) => {
         cart.push(item);
     }
 
+    saveCartToLocalStorage(cart);
+    renderCart();
+}
+
+const removeFromCart = (item) => {
+    let cart = getCartFromLocalStorage();
+    const itemIndex = cart.findIndex(cartItem => cartItem.title === item.title);
+
+    if (itemIndex > -1) {
+        if (cart[itemIndex].quantity > 1) {
+            cart[itemIndex].quantity -= 1;
+        } else {
+            cart.splice(itemIndex, 1);
+        }
+    }
+
+    saveCartToLocalStorage(cart);
+    renderCart();
+}
+
+const deleteFromCart = (item) => {
+    let cart = getCartFromLocalStorage();
+    cart = cart.filter(cartItem => cartItem.title !== item.title);
     saveCartToLocalStorage(cart);
     renderCart();
 }
@@ -142,31 +175,6 @@ const renderCart = () => {
         carts.appendChild(cartElement);
     });
 }
-
-const removeFromCart = (item) => {
-    let cart = getCartFromLocalStorage();
-    const itemIndex = cart.findIndex(cartItem => cartItem.title === item.title);
-
-    if (itemIndex > -1) {
-        cart[itemIndex].quantity -= 1;
-        if (cart[itemIndex].quantity === 0) {
-            cart.splice(itemIndex, 1);
-        }
-    }
-
-    saveCartToLocalStorage(cart);
-    renderCart();
-}
-
-const deleteFromCart = (item) => {
-    let cart = getCartFromLocalStorage();
-    cart = cart.filter(cartItem => cartItem.title !== item.title);
-
-    saveCartToLocalStorage(cart);
-    renderCart();
-}
-
-// Notification function
 const showNotification = (message) => {
     const notification = document.createElement('div');
     notification.className = 'notification';
