@@ -22,7 +22,7 @@
     bottom: 30px;
     transition: 200ms all;
     right: 20px;
-    background-color:var(--orange-color);
+    background-color: var(--orange-color);
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
@@ -45,16 +45,48 @@
     align-items: center;
     padding-top: 3rem;
 
-    i {
-        padding: 1rem .5rem;
-        color: var(--white-color);
-        background-color: var(--orange-color);
-        border-radius: 25rem;
-        width: 3rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: .5rem;
+    a {
+        position: relative;
+
+        i {
+            padding: 14px .5rem;
+            color: var(--white-color);
+            background-color: var(--orange-color);
+            border-radius: 25rem;
+            width: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: .5rem;
+            transition: 200ms all;
+            border: 2px solid var(--orange-color);
+        }
+
+        p {
+            background-color: #ef9356b9;
+            color: var(--white-color);
+            padding: .2rem 1rem;
+            font-size: .7rem;
+            position: absolute;
+            top: .75rem;
+            right: -2.3rem;
+            border: none;
+            border-radius: 1rem;
+            transition: 200ms all;
+            opacity: 0;
+            z-index: -1;
+        }
+        &:hover{
+            i{
+                transform: scale(1.1);
+            }
+            p{
+                opacity: 1;
+                right: -4.5rem;
+                z-index: unset;
+            }
+            
+        }
     }
 }
 
@@ -99,6 +131,22 @@
         margin-top: 0;
         margin: 1rem;
         margin-bottom: 1.5rem;
+    }
+
+    .cartSection {
+        height: calc(100vh - 12rem);
+        overflow-y: auto;
+        padding: 1rem;
+    }
+
+
+    .cartSection::-webkit-scrollbar {
+        display: none;
+    }
+
+    .cartSection {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
 
     .cart {
@@ -160,9 +208,26 @@
         }
 
     }
+
+    button{
+        background-color: var(--orange-color);
+        color: var(--white-color);
+        padding: .9rem 2rem;
+        font-weight: 500;
+        letter-spacing: .05rem;
+        width: 100%;
+        border: 2px solid var(--orange-color);
+        border-radius: 1rem;
+        margin: 1rem;
+        transition: 200ms all;
+        &:hover{
+            background-color: transparent;
+            color: var(--orange-color);
+        }
+    }
 }
 
-.mainContainer{
+.mainContainer {
     width: 100%;
     background-color: #fbf6f3;
 }
@@ -192,7 +257,7 @@ nav {
     z-index: 999;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
-    .navInput{
+    .navInput {
         display: flex;
         align-items: center;
         gap: 2rem;
@@ -206,6 +271,7 @@ nav {
             border-radius: 25rem;
             font-weight: 500;
         }
+
         .input {
             border: 1px solid #e9ecef;
             display: inline-flex;
@@ -213,16 +279,16 @@ nav {
             border-radius: 25rem;
             max-width: 25rem;
             width: 100%;
-    
+
             input {
                 padding: .5rem .7rem;
                 border: none;
-    
+
                 &::placeholder {
                     color: var(--gray-color);
                 }
             }
-    
+
             i {
                 padding-left: .9rem;
                 color: var(--gray-color);
@@ -243,7 +309,8 @@ nav {
             cursor: pointer;
             transition: 200ms all;
             position: relative;
-            &:hover{
+
+            &:hover {
                 transform: scale(1.1);
             }
         }
@@ -362,45 +429,43 @@ nav {
             align-items: center;
             width: 112px;
             min-height: 220px;
-            background-color: #ef9456;
             border: none;
             border-radius: 7px;
             padding: 1rem;
             cursor: pointer;
             transition: 200ms all;
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-
-            &:nth-child(2) {
-                background-color: #ffffff;
-
-                #divider {
-                    background-color: var(--orange-color);
+            background-color: #ffffff;
+            
+            
+            &:hover {
+                background-color: var(--orange-color);
+                i{
+                    background-color: var(--white-color);
+                    color: var(--orange-color);
                 }
-
-                i {
-                    background-color: var(--orange-color);
+                #divider{
+                    background-color: var(--white-color);
+                }
+                p{
                     color: var(--white-color);
                 }
             }
 
-            &:hover {
-                background-color: var(--orange-color);
-            }
-
             img {}
-
+            
             p {}
-
+            
             #divider {
-                background-color: #efe9e9;
+                background-color: var(--orange-color);
                 height: 1px;
                 width: 100%;
                 margin: .5rem 0;
             }
-
+            
             i {
-                background-color: var(--white-color);
-                color: var(--orange-color);
+                background-color: var(--orange-color);
+                color: var(--white-color);
                 width: 1.3rem;
                 height: 1.3rem;
                 display: flex;
@@ -409,6 +474,18 @@ nav {
                 border-radius: 25rem;
                 padding: .3rem;
                 border: none;
+            }
+        }
+        .categoryColor {
+            background-color: #ef9456;
+            
+            #divider {
+                background-color: #efe9e9;
+            }
+            
+            i {
+                background-color: var(--white-color);
+                color: var(--orange-color);
             }
         }
     }
@@ -436,7 +513,7 @@ nav {
             transition: 200ms all;
 
 
-            &:nth-child(3) {
+            &:nth-child(even) {
                 background-color: #ef9456;
 
                 p,

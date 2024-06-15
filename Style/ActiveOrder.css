@@ -19,18 +19,20 @@
 
 .notification {
     position: fixed;
-    bottom: 30px;
-    transition: 200ms all;
+    bottom: 20px;
     right: 20px;
     background-color: var(--orange-color);
-    color: white;
-    padding: 10px 20px;
+    color: #fff;
+    padding: 1rem 2rem;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
-
+.notification.show {
+    opacity: 1;
+}
 
 .navbarFixed {
     position: fixed;
@@ -45,16 +47,50 @@
     align-items: center;
     padding-top: 3rem;
 
-    i {
-        padding: 1rem .5rem;
-        color: var(--white-color);
-        background-color: var(--orange-color);
-        border-radius: 25rem;
-        width: 3rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: .5rem;
+    a {
+        position: relative;
+
+        i {
+            padding: 14px .5rem;
+            color: var(--white-color);
+            background-color: var(--orange-color);
+            border-radius: 25rem;
+            width: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: .5rem;
+            transition: 200ms all;
+            border: 2px solid var(--orange-color);
+        }
+
+        p {
+            background-color: #ef9356b9;
+            color: var(--white-color);
+            padding: .2rem 1rem;
+            font-size: .7rem;
+            position: absolute;
+            top: .75rem;
+            right: -2.3rem;
+            border: none;
+            border-radius: 1rem;
+            transition: 200ms all;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        &:hover {
+            i {
+                transform: scale(1.1);
+            }
+
+            p {
+                opacity: 1;
+                right: -4.5rem;
+                z-index: unset;
+            }
+
+        }
     }
 }
 
@@ -232,11 +268,10 @@ nav {
     }
 
     .right {
-        display: none;
+        display: flex;
         align-items: center;
         justify-content: center;
         gap: 1rem;
-
 
         i {
             color: var(--orange-color);
@@ -253,61 +288,6 @@ nav {
     }
 }
 
-.banner {
-    min-height: 20rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    width: calc(100vw - 7rem);
-
-    img {
-        position: absolute;
-        width: 100vw;
-        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-        border-radius: 1rem;
-    }
-
-    .content {
-        z-index: 9;
-        padding: 5vw 3vw;
-
-        h4 {
-            font-size: .9rem;
-            color: var(--orange-color);
-            font-weight: 400;
-            z-index: 1;
-        }
-
-        h1 {
-            font-size: 2rem;
-            z-index: 1;
-            padding: 1rem 0 .5rem 0;
-            color: var(--black-color);
-        }
-
-        p {
-            color: var(--gray-color);
-            z-index: 1;
-            padding-bottom: .5rem;
-
-            span {
-                color: var(--orange-color);
-            }
-        }
-    }
-
-    button {
-        background-color: var(--orange-color);
-        padding: .7rem 2rem;
-        color: var(--white-color);
-        z-index: 2;
-        cursor: pointer;
-        border: none;
-        border-radius: 25rem;
-    }
-}
 
 .menu {
     padding: 5vw 3vw;
@@ -332,6 +312,7 @@ nav {
             justify-content: center;
             align-items: center;
             gap: .7rem;
+
             button {
                 width: 6rem;
                 background-color: var(--orange-color);
@@ -340,7 +321,8 @@ nav {
                 border: 2px solid var(--orange-color);
                 border-radius: 1rem;
                 transition: 200ms all;
-                &:hover{
+
+                &:hover {
                     background-color: transparent;
                     color: var(--orange-color);
                 }
@@ -361,7 +343,6 @@ nav {
             margin-bottom: 6rem;
             display: flex;
             width: 251px;
-            cursor: pointer;
             flex-direction: column;
             gap: 2rem;
             padding: 0 1.5rem 1.5rem 1.5rem;
@@ -372,6 +353,7 @@ nav {
 
             img {
                 width: 170px;
+                margin: auto;
                 margin-top: -4rem;
             }
 
@@ -395,6 +377,7 @@ nav {
                         color: var(--white-color);
                         padding: .6rem;
                         border-radius: 10px;
+                        cursor: pointer;
 
                     }
 
@@ -410,26 +393,31 @@ nav {
                 flex-direction: row-reverse;
                 justify-content: space-between;
                 align-items: center;
-
+                flex-direction: column-reverse;
 
                 i {
                     background-color: var(--orange-color);
                     color: var(--white-color);
                     padding: .6rem 2rem;
-                    border-radius: 10px;
-
+                    border-radius: 10px;        
+                    cursor: pointer;
                 }
 
                 p {
                     font-size: medium;
                     font-weight: 400;
                     color: var(--black-color);
+                    padding-bottom: .7rem;
                 }
             }
+        }
 
+        .cart.completed {
+            background-color: #d3ffd3; 
         }
     }
-    #totalPrice{
+
+    #totalPrice {
         font-size: 1.1rem;
     }
 }

@@ -10,19 +10,19 @@ cartToggleClose.addEventListener('click', () => {
     cartFixed.style.width = '0px';
 });
 
-
 const activeOrderSection = document.getElementById("activeOrderSection");
 const totalPriceElement = document.getElementById('totalPrice');
 
 const pizzaCategoryButton = document.getElementById('pizzaCategoryButton');
 const burgerCategoryButton = document.getElementById('burgerCategoryButton');
 const allCategoryButton = document.getElementById('allCategoryButton');
+const searchInput = document.getElementById('searchInput'); 
 
 const getCartFromLocalStorage = () => {
     return JSON.parse(localStorage.getItem('cart')) || [];
 };
 
-const renderCart = (category) => {
+const renderCart = (category, searchTerm) => {
     activeOrderSection.innerHTML = "";
     let cart = getCartFromLocalStorage();
 
@@ -30,11 +30,17 @@ const renderCart = (category) => {
         cart = cart.filter(item => item.category === category);
     }
 
+    if (searchTerm) {
+        cart = cart.filter(item => item.title.toLowerCase().includes(searchTerm.toLowerCase()));
+    }
+
     cart.forEach((item) => {
         let cartElement = document.createElement('div');
         cartElement.className = "cart";
         cartElement.innerHTML = `
-            <img src="${item.imgSrc}" alt="${item.title}">
+        <div>
+        <img src="${item.imgSrc}" alt="${item.title}">
+        </div>
             <div class="counter">
                 <p>${item.title}</p>
                 <span>
@@ -44,7 +50,10 @@ const renderCart = (category) => {
                 </span>
             </div>
             <div class="delete">
+            <div>
+                <i class="fa-solid fa-truck" id="activeOrderDone"></i>
                 <i class="fa-solid fa-trash-can"></i>
+            </div>
                 <p>${item.price}</p>
             </div>
         `;
@@ -56,6 +65,10 @@ const renderCart = (category) => {
         });
         cartElement.querySelector('.fa-trash-can').addEventListener('click', () => {
             deleteFromCart(item);
+        });
+        cartElement.querySelector('.fa-truck').addEventListener('click', () => {
+            cartElement.classList.add('completed');
+            showNotification(`Order for ${item.title} is now active`);
         });
         activeOrderSection.appendChild(cartElement);
     });
@@ -109,10 +122,28 @@ const deleteFromCart = (item) => {
     renderCart();
 };
 
-// Event listeners for category buttons
 pizzaCategoryButton.addEventListener('click', () => renderCart('pizza'));
 burgerCategoryButton.addEventListener('click', () => renderCart('burger'));
 allCategoryButton.addEventListener('click', () => renderCart());
+searchInput.addEventListener('input', () => renderCart(null, searchInput.value)); 
 
-// Initial render of cart
 renderCart();
+
+const showNotification = (message) => {
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.innerText = message;
+
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 10);
+
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 500);
+    }, 3000);
+};

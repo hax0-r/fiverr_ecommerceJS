@@ -48,6 +48,13 @@ const cardsData = [
         category: "burger"
     },
     {
+        imgSrc: "./Assets/Index/Vegetable Pizza.png",
+        title: "Vegetable Pizza",
+        rating: 3,
+        price: "$3.29",
+        category: "burger"
+    },
+    {
         imgSrc: "./Assets/Index/Mushroom Pizza.png",
         title: "Mushroom Pizza",
         rating: 3,
@@ -57,10 +64,17 @@ const cardsData = [
 ];
 
 const cards = document.getElementById("cardSection");
+const searchInput = document.getElementById('searchInput'); 
 
-const cardMethod = (category) => {
+
+const cardMethod = (category, searchTerm) => {
     cards.innerHTML = "";
-    const filteredData = category ? cardsData.filter(data => data.category === category) : cardsData;
+    let filteredData = category ? cardsData.filter(data => data.category === category) : cardsData;
+
+    if (searchTerm) {
+        filteredData = filteredData.filter(data => data.title.toLowerCase().includes(searchTerm.toLowerCase()));
+    }
+
     filteredData.map((data) => {
         let cardElement = document.createElement('div');
         cardElement.className = "card";
@@ -89,11 +103,26 @@ const cardMethod = (category) => {
     });
 }
 
-document.getElementById('pizzaCategory').addEventListener('click', () => cardMethod('pizza'));
-document.getElementById('burgerCategory').addEventListener('click', () => cardMethod('burger'));
+const pizzaCategory = document.getElementById('pizzaCategory');
+const burgerCategory = document.getElementById('burgerCategory');
+pizzaCategory.addEventListener('click', () => {
+    cardMethod('pizza', searchInput.value); // Pass the current search term
+    pizzaCategory.classList.add("categoryColor");
+    burgerCategory.classList.remove("categoryColor");
+});
+burgerCategory.addEventListener('click', () => {
+    cardMethod('burger', searchInput.value); // Pass the current search term
+    pizzaCategory.classList.remove("categoryColor");
+    burgerCategory.classList.add("categoryColor");
+});
+
+searchInput.addEventListener('input', () => {
+    const category = pizzaCategory.classList.contains("categoryColor") ? 'pizza' : 
+                     burgerCategory.classList.contains("categoryColor") ? 'burger' : null;
+    cardMethod(category, searchInput.value);
+});
 
 cardMethod();
-
 const carts = document.getElementById("cartSection");
 
 const getCartFromLocalStorage = () => {
