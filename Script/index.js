@@ -3,7 +3,7 @@ const cartToggle = document.getElementById('cartToggle');
 const cartToggleClose = document.getElementById('cartToggleClose');
 
 cartToggle.addEventListener('click', () => {
-    cartFixed.style.width = '400px';
+    cartFixed.style.width = '350px';
 });
 
 cartToggleClose.addEventListener('click', () => {

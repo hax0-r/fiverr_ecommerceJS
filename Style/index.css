@@ -108,7 +108,7 @@
 	 position: fixed;
 	 top: 0;
 	 right: 0;
-	 width: 400px;
+	 width: 350px;
 	 z-index: 9999;
 	 height: 100vh;
 	 -webkit-transition: 200ms all;
@@ -242,7 +242,7 @@
  .cartFixed .cart .delete p {
 	 color: var(--black-color);
 }
- .cartFixed p {
+#totalpriceHandler   {
 	 padding-left: 1.3rem;
 	 padding-bottom: 0.5rem;
 	 padding-top: 1rem;
