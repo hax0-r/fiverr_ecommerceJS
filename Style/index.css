@@ -76,17 +76,25 @@
             opacity: 0;
             z-index: -1;
         }
-        &:hover{
-            i{
+
+        &:hover {
+            i {
                 transform: scale(1.1);
             }
-            p{
+
+            p {
                 opacity: 1;
                 right: -4.5rem;
                 z-index: unset;
             }
-            
+
         }
+    }
+}
+
+@media (max-width:500px) {
+    .navbarFixed {
+        width: 4rem;
     }
 }
 
@@ -209,13 +217,13 @@
 
     }
 
-    p{
+    p {
         padding-left: 1.3rem;
         padding-bottom: .5rem;
         padding-top: 1rem;
     }
 
-    button{
+    button {
         background-color: var(--orange-color);
         color: var(--white-color);
         padding: .9rem 2rem;
@@ -228,10 +236,18 @@
         margin-bottom: 0;
         margin-top: 0;
         transition: 200ms all;
-        &:hover{
+
+        &:hover {
             background-color: transparent;
             color: var(--orange-color);
         }
+    }
+}
+
+
+@media (max-width:500px) {
+    .cartFixed {
+        width: 0;
     }
 }
 
@@ -247,7 +263,12 @@
     z-index: -999;
     max-width: 100vw;
     width: 100%;
+}
 
+@media (max-width:500px) {
+    .container {
+        padding-left: 4rem;
+    }
 }
 
 nav {
@@ -304,11 +325,27 @@ nav {
         }
     }
 
+    @media (max-width:500px) {
+        .navInput {
+
+            h1 {
+                background-color: #f8cfb3;
+                padding: .2rem 2rem;
+                font-size: .8rem;
+            }
+
+            .input {
+                display: none;
+            }
+        }
+    }
+
     .right {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 1rem;
+        padding-left: 1rem;
 
         i {
             color: var(--orange-color);
@@ -357,6 +394,7 @@ nav {
             z-index: 1;
             padding: 1rem 0 .5rem 0;
             color: var(--black-color);
+            font-weight: 600;
         }
 
         p {
@@ -381,6 +419,35 @@ nav {
     }
 }
 
+@media (max-width:500px) {
+    .banner {
+        padding: 1rem;
+
+        img {
+            display: none;
+        }
+
+        .content {
+            h1 {
+                font-size: 2rem;
+                z-index: 1;
+                padding: 1rem 0 .5rem 0;
+                color: var(--black-color);
+            }
+        }
+
+        button {
+            background-color: var(--orange-color);
+            padding: .7rem 2rem;
+            color: var(--white-color);
+            z-index: 2;
+            cursor: pointer;
+            border: none;
+            border-radius: 25rem;
+        }
+    }
+}
+
 .menu {
     padding: 5vw 3vw;
     margin: auto;
@@ -396,6 +463,7 @@ nav {
         h1 {
             font-size: 1.8rem;
             color: var(--black-color);
+            font-weight: 500;
         }
 
         a {
@@ -422,6 +490,18 @@ nav {
                 border: none;
             }
         }
+
+        @media (max-width:500px) {
+            padding: 1rem;
+
+            a {
+                display: none;
+            }
+
+            h1 {
+                font-size: 1.2rem;
+            }
+        }
     }
 
     .category {
@@ -444,33 +524,38 @@ nav {
             transition: 200ms all;
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
             background-color: #ffffff;
-            
-            
+
+
+
+
             &:hover {
                 background-color: var(--orange-color);
-                i{
+
+                i {
                     background-color: var(--white-color);
                     color: var(--orange-color);
                 }
-                #divider{
+
+                #divider {
                     background-color: var(--white-color);
                 }
-                p{
+
+                p {
                     color: var(--white-color);
                 }
             }
 
             img {}
-            
+
             p {}
-            
+
             #divider {
                 background-color: var(--orange-color);
                 height: 1px;
                 width: 100%;
                 margin: .5rem 0;
             }
-            
+
             i {
                 background-color: var(--orange-color);
                 color: var(--white-color);
@@ -484,17 +569,24 @@ nav {
                 border: none;
             }
         }
+
         .categoryColor {
             background-color: #ef9456;
-            
+
             #divider {
                 background-color: #efe9e9;
             }
-            
+
             i {
                 background-color: var(--white-color);
                 color: var(--orange-color);
             }
+        }
+    }
+
+    @media (max-width:500px) {
+        .category {
+            padding: 1rem;
         }
     }
 
@@ -590,6 +682,12 @@ nav {
                     border: none;
                     color: var(--white-color);
                 }
+            }
+        }
+
+        @media (max-width:500px) {
+            .card {
+                margin-bottom: 4rem;
             }
         }
     }

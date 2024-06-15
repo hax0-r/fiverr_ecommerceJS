@@ -94,6 +94,12 @@
     }
 }
 
+@media (max-width:500px) {
+    .navbarFixed {
+        width: 4rem;
+    }
+}
+
 .cartFixed {
     position: fixed;
     top: 0;
@@ -102,6 +108,7 @@
     z-index: 9999;
     height: 100vh;
     transition: 200ms all;
+    display: none;
     background-color: var(--white-color);
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
@@ -213,6 +220,12 @@
 
 }
 
+@media (max-width:500px) {
+    .container {
+        padding-left: 4rem;
+    }
+}
+
 nav {
     background-color: var(--white-color);
     display: flex;
@@ -267,11 +280,27 @@ nav {
         }
     }
 
+    @media (max-width:500px) {
+        .navInput {
+
+            h1 {
+                background-color: #f8cfb3;
+                padding: .2rem 2rem;
+                font-size: .8rem;
+            }
+
+            .input {
+                display: none;
+            }
+        }
+    }
+
     .right {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 1rem;
+        padding-left: 1rem;
 
         i {
             color: var(--orange-color);
@@ -280,6 +309,7 @@ nav {
             cursor: pointer;
             transition: 200ms all;
             position: relative;
+            opacity: 0;
 
             &:hover {
                 transform: scale(1.1);
@@ -287,6 +317,7 @@ nav {
         }
     }
 }
+
 
 
 .menu {
@@ -310,6 +341,7 @@ nav {
         .categoryButtons {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             align-items: center;
             gap: .7rem;
 
@@ -326,6 +358,18 @@ nav {
                     background-color: transparent;
                     color: var(--orange-color);
                 }
+            }
+        }
+    }
+
+    @media (max-width:500px) {
+        .head {
+            flex-direction: column;
+
+            h1 {
+                padding-top: 2rem;
+                padding-bottom: 1rem;
+                font-size: 1.2rem;
             }
         }
     }
@@ -399,7 +443,7 @@ nav {
                     background-color: var(--orange-color);
                     color: var(--white-color);
                     padding: .6rem 2rem;
-                    border-radius: 10px;        
+                    border-radius: 10px;
                     cursor: pointer;
                 }
 
@@ -412,12 +456,29 @@ nav {
             }
         }
 
+
         .cart.completed {
-            background-color: #d3ffd3; 
+            background-color: #d3ffd3;
+        }
+    }
+
+    @media (max-width:500px) {
+        .cardSection {
+            padding-top: 4rem;
+
+            .cart {
+                margin-bottom: 4rem;
+            }
         }
     }
 
     #totalPrice {
         font-size: 1.1rem;
+    }
+}
+
+@media (max-width:500px) {
+    .menu {
+        padding: 1rem 1rem 5rem 1rem;
     }
 }
