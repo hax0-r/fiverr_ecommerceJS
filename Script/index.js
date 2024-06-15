@@ -124,6 +124,7 @@ searchInput.addEventListener('input', () => {
 
 cardMethod();
 const carts = document.getElementById("cartSection");
+const totalPriceElement = document.querySelector(".cartFixed p"); // Get the element that displays the total price
 
 const getCartFromLocalStorage = () => {
     return JSON.parse(localStorage.getItem('cart')) || [];
@@ -147,7 +148,6 @@ const addToCart = (item) => {
     saveCartToLocalStorage(cart);
     renderCart();
 }
-
 const removeFromCart = (item) => {
     let cart = getCartFromLocalStorage();
     const itemIndex = cart.findIndex(cartItem => cartItem.title === item.title);
@@ -169,6 +169,13 @@ const deleteFromCart = (item) => {
     cart = cart.filter(cartItem => cartItem.title !== item.title);
     saveCartToLocalStorage(cart);
     renderCart();
+}
+
+const calculateTotalPrice = (cart) => {
+    return cart.reduce((total, item) => {
+        const price = parseFloat(item.price.replace('$', ''));
+        return total + (price * item.quantity);
+    }, 0).toFixed(2); // Round to 2 decimal places
 }
 
 const renderCart = () => {
@@ -203,7 +210,11 @@ const renderCart = () => {
         });
         carts.appendChild(cartElement);
     });
+
+    const totalPrice = calculateTotalPrice(cart);
+    totalPriceElement.textContent = `Total Price: $${totalPrice}`;
 }
+
 const showNotification = (message) => {
     const notification = document.createElement('div');
     notification.className = 'notification';
@@ -215,5 +226,4 @@ const showNotification = (message) => {
     }, 3000);
 }
 
-// Initial render of cart
 renderCart();
