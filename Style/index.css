@@ -108,7 +108,7 @@
 	 position: fixed;
 	 top: 0;
 	 right: 0;
-	 width: 350px;
+	 width: 10px;
 	 z-index: 9999;
 	 height: 100vh;
 	 -webkit-transition: 200ms all;
@@ -117,7 +117,23 @@
 	 background-color: var(--white-color);
 	 -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 	         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+			 &::before{
+				content: '';
+				position: absolute;
+				left: -8rem;
+				z-index: -1;
+				top: 0;
+				width: 8rem;
+				height: 4.7rem;
+				background-color: transparent;
+			 }
 }
+
+.cartFixed:hover{
+	width: 350px;
+}
+
  .cartFixed .head {
 	 display: -webkit-box;
 	 display: -ms-flexbox;
